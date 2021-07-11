@@ -23,13 +23,20 @@ class CitationController extends AbstractController
     }
     
     /**
-     * @Route("/citation/{$id}", name="app_citation_comment")
+     * Undocumented function
+     * @Route("/citation/{id}", name="app_citation")
      * @IsGranted("ROLE_USER")
+     * @param [type] $id
+     * @param CitationRepository $citationRepository
+     * @return Response
      */
-    public function show($id): Response 
+    public function show(CitationRepository $citationRepository, $id): Response
     {
+        $citation = $citationRepository->findOneById($id);
+
         return $this->render('citation/show.html.twig', [
             'controller_name' => 'CitationController',
+            'citation' => $citation,
         ]);
     }
 }

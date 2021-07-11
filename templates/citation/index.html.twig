@@ -12,7 +12,8 @@
     <h1>Liste de vos citations</h1>
     <ul>
         {% for citation in citations %}
-          <li><a href="{{ path('app_citation_comment', { 'id' : citation.id } )}}">{{ citation.libelle }}</a></li>
+          <li><a href="{{ path("app_citation" , {"id": citation.id})  }}">{{ citation.libelle }}</a></li>
+        <hr>
         {% endfor %}
     </ul>
 
